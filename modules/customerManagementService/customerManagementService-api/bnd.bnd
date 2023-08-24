@@ -1,0 +1,10 @@
+Bundle-Name: customerManagementService-api
+Bundle-SymbolicName: customerManagementService.api
+Bundle-Version: 1.0.0
+Export-Package:\
+	customerManagementService.exception,\
+	customerManagementService.model,\
+	customerManagementService.service,\
+	customerManagementService.service.persistence
+-check: EXPORTS
+-includeresource: META-INF/service.xml=../customerManagementService-service/service.xml

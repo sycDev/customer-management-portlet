@@ -1,0 +1,36 @@
+<?xml version="1.0"?>
+
+<model-hints>
+	<model name="customerManagementService.model.Customer">
+		<field name="customerId" type="long" />
+		<field name="customerName" type="String" />
+		<field name="customerIdentityNo" type="String" />
+		<field name="customerEmail" type="String" />
+		<field name="customerAddress" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="customerContactNo" type="String" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+	<model name="customerManagementService.model.Services">
+		<field name="serviceId" type="long" />
+		<field name="serviceName" type="String" />
+		<field name="serviceType" type="String" />
+		<field name="serviceSpecification" type="String">
+			<hint-collection name="TEXTAREA" />
+		</field>
+		<field name="servicePlan" type="String" />
+		<field name="servicePrice" type="double" />
+		<field name="groupId" type="long" />
+		<field name="companyId" type="long" />
+		<field name="userId" type="long" />
+		<field name="userName" type="String" />
+		<field name="createDate" type="Date" />
+		<field name="modifiedDate" type="Date" />
+	</model>
+</model-hints>

@@ -1,0 +1,11 @@
+dependencies {
+	compile project(":modules:customerManagementService:customerManagementService-api")
+
+	compileOnly group: "com.liferay.portal", name: "release.portal.api"
+}
+
+buildService {
+	apiDir = "../customerManagementService-api/src/main/java"
+}
+
+group = "customerManagementService"

@@ -1,0 +1,4 @@
+Bundle-Name: CustomerManagement
+Bundle-SymbolicName: CustomerManagement
+Bundle-Version: 1.0.0
+Export-Package: CustomerManagement.constants

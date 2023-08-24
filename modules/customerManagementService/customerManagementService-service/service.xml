@@ -1,0 +1,98 @@
+<?xml version="1.0"?>
+<!DOCTYPE service-builder PUBLIC "-//Liferay//DTD Service Builder 7.4.0//EN" "http://www.liferay.com/dtd/liferay-service-builder_7_4_0.dtd">
+
+<service-builder dependency-injector="ds" package-path="customerManagementService">
+	<namespace>CM</namespace>
+	<!--<entity data-source="sampleDataSource" local-service="true" name="Foo" remote-service="false" session-factory="sampleSessionFactory" table="foo" tx-manager="sampleTransactionManager uuid="true"">-->
+    <entity local-service="true" name="Customer" remote-service="false">
+
+		<!-- PK fields -->
+
+		<column name="customerId" primary="true" type="long" id-type="increment"></column>
+
+		<!-- Other fields -->
+
+		<column name="customerName" type="String"></column>
+        <column name="customerIdentityNo" type="String"></column>
+        <column name="customerEmail" type="String"></column>
+        <column name="customerAddress" type="String"></column>
+        <column name="customerContactNo" type="String"></column>
+
+		<!-- Group instance -->
+
+		<column name="groupId" type="long"></column>
+
+		<!-- Audit fields -->
+
+		<column name="companyId" type="long"></column>
+		<column name="userId" type="long"></column>
+		<column name="userName" type="String"></column>
+		<column name="createDate" type="Date"></column>
+		<column name="modifiedDate" type="Date"></column>
+		
+		<!-- Many-to-many relation -->
+
+		<column name="services" type="Collection" entity="Services" mapping-table="Customers_Services"></column>
+
+		<!-- Order -->
+
+		<order by="asc">
+			<order-column name="customerId" order-by="asc"></order-column>
+		</order>
+
+		<!-- Finder methods -->
+
+		<finder name="GroupId" return-type="Collection">
+			<finder-column name="groupId"></finder-column>
+		</finder>
+        <finder name="CustomerName" return-type="Collection">
+            <finder-column name="customerName"></finder-column>
+        </finder>
+	</entity>
+    <entity local-service="true" name="Services" remote-service="false">
+
+    	<!-- PK fields -->
+
+    	<column name="serviceId" primary="true" type="long" id-type="increment"></column>
+
+		<!-- Other fields -->
+
+    	<column name="serviceName" type="String"></column>
+        <column name="serviceType" type="String"></column>
+        <column name="serviceSpecification" type="String"></column>
+        <column name="servicePlan" type="String"></column>
+        <column name="servicePrice" type="double"></column>
+
+    	<!-- Group instance -->
+
+    	<column name="groupId" type="long"></column>
+
+    	<!-- Audit fields -->
+
+    	<column name="companyId" type="long"></column>
+    	<column name="userId" type="long"></column>
+    	<column name="userName" type="String"></column>
+    	<column name="createDate" type="Date"></column>
+    	<column name="modifiedDate" type="Date"></column>
+
+		<!-- Many-to-many relation -->
+
+		<column name="customers" type="Collection" entity="Customer" mapping-table="Customers_Services"></column>
+
+    	<!-- Order -->
+
+    	<order by="asc">
+    		<order-column name="serviceId" order-by="asc"></order-column>
+    	</order>
+
+    	<!-- Finder methods -->
+
+    	<finder name="GroupId" return-type="Collection">
+    		<finder-column name="groupId"></finder-column>
+    	</finder>
+    	<finder name="ServiceType" return-type="Collection">
+            <finder-column name="serviceType"></finder-column>
+        </finder>
+    </entity>
+    <author>Sin Yi</author>
+</service-builder>
